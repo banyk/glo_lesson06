@@ -17,19 +17,25 @@ const myNumber = 40;
 
 const newNum = function () {
 	let userNum = prompt('Угадай число от 1 до 100');
-	if (isNumber(userNum)) {
-		return userNum;
-	} else {
-		userNum = prompt('Угадай число от 1 до 100');
-		return userNum;
+	console.log(userNum + ' ' + typeof userNum);
+	if (isNaN(userNum) || userNum.trim() === '') {
+		console.log(userNum + ' записанное значение' + typeof userNum);
+		newNum();
+	} else if (userNum === null) {
+		alert('Игра окончена');
 	}
+	return userNum;
 };
 
 //  userName не перезаписывается 
 
 console.log('newNum();: ', newNum());
 
+let newGame = function () {
+	return confirm('Еще игру?');
+};
 
+// console.log('result: ', typeof result, result);
 
 const playGame = function () {
 	let result = writeNum();
@@ -49,4 +55,4 @@ const playGame = function () {
 
 };
 
-// playGame(); 
+// playGame();
